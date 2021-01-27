@@ -86,7 +86,7 @@ Analyzing the results obtained we can see that correspond to the information sto
 
 ## Inform
 
-- [View the Design Inform](https://github.com/juancamilo399/Taller1Arep/blob/master/resources/Inform.pdf)
+- [View the Design Inform](https://github.com/angiedanielar/LAB1_AREP/blob/master/Inform.pdf)
 
 ## Author
 
