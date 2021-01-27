@@ -1,38 +1,63 @@
 package edu.escuelaing.arep.app;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 /**
- * Unit test for simple App.
+ * Unit tests for App
+ * @author 
  */
-public class AppTest 
-    extends TestCase
+public class AppTest
+
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
+    @Test
+    public void shouldAdd()
     {
-        super( testName );
+        LinkedList<Double> myLinkedList = new LinkedList<Double>();
+        double[] values={1.0,2.0,3.0,4.0};
+        boolean flag=false;
+        for (Double value:values) {
+            myLinkedList.add(value);
+            flag=(myLinkedList.tail.getValue().equals(value));
+        }
+        int sizeInitial= myLinkedList.size;
+        assertEquals(sizeInitial,4);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
+    @Test
+    public void shouldDelete()
     {
-        return new TestSuite( AppTest.class );
+        LinkedList<Double> myLinkedList = new LinkedList<Double>();
+        Double[] values={1.0,2.0,3.0,4.0};
+        for (Double value:values) myLinkedList.add(value);
+        int sizeInitial= myLinkedList.size;
+        myLinkedList.delete(2.0);
+        assertEquals(myLinkedList.size,sizeInitial-1);
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void meanAndStandardDeviationExamplesOne() throws Exception {
+        LinkedList<Double> myLinkedList = new LinkedList<Double>();
+        Double[] values ={160.0,591.0,114.0,229.0,230.0,270.0,128.0,1657.0,624.0,1503.0};
+        for (Double value:values) myLinkedList.add(value);
+        double mean=App.mean(myLinkedList);
+        double standard_deviation=App.standardDeviation(myLinkedList);
+        assertEquals(550.6,mean,0.001);
+        assertEquals(572.03,standard_deviation,0.001);
     }
+
+    @Test
+    public void meanAndStandardDeviationExamplesTwo() throws Exception {
+        LinkedList<Double> myLinkedList = new LinkedList<Double>();
+        double[] values={15.0,69.9,6.5,22.4,28.4,65.9,19.4,198.7,38.8,138.2};
+        for (Double value:values) myLinkedList.add(value);
+        double mean=App.mean(myLinkedList);
+        double standard_deviation=App.standardDeviation(myLinkedList);
+        assertEquals(60.32,mean,0.001);
+        assertEquals(62.26,standard_deviation,0.001);
+    }
+
+
 }
