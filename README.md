@@ -33,7 +33,7 @@ java -showversion
 1. Clone the repository:
 
 ```
-git clone https://github.com/juancamilo399/Taller1Arep.git
+git clone https://github.com/angiedanielar/LAB1_AREP.git
 ```
 
 2. Compile the projet:
